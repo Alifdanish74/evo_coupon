@@ -12,13 +12,13 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 129, 6, 150),
+      backgroundColor: const Color.fromARGB(255, 129, 6, 150),
       body: SafeArea(
           child: SizedBox(
         width: double.infinity,
         child: SingleChildScrollView(
           child: Column(
-            children: [
+            children: const [
               HomeBody(),
             ],
           ),

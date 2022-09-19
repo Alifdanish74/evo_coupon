@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../../core/utils/color_constant.dart';
 import '../../core/utils/math_utils.dart';
 import '../../size_config.dart';
@@ -30,6 +31,8 @@ class _PaymentFormState extends State<PaymentForm> {
                 right: 18,
               ),
               child: TextFormField(
+                keyboardType: TextInputType.number,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 //cursorColor: Colors.redAccent,
                 decoration: InputDecoration(
                   filled: true, //<-- SEE HERE
@@ -123,6 +126,8 @@ class _PaymentFormState extends State<PaymentForm> {
                 right: 18,
               ),
               child: TextFormField(
+                keyboardType: TextInputType.number,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 //cursorColor: Colors.redAccent,
                 decoration: InputDecoration(
                   filled: true, //<-- SEE HERE

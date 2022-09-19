@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.5
   cached_network_image: ^3.2.1
   flutter_svg: ^0.22.0
-  nb_utils: ^4.4.8
+  nb_utils: ^4.6.21
 
 dev_dependencies:
   flutter_test:

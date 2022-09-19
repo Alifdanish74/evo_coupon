@@ -35,7 +35,7 @@ class HomeBody extends StatelessWidget {
                       children: [
                         const Padding(
                           padding: EdgeInsets.fromLTRB(30.0, 40, 0, 0),
-                          child:  Text(
+                          child: Text(
                             "Coupon Type",
                             style: TextStyle(
                               color: Color.fromARGB(255, 62, 39, 92),
@@ -269,7 +269,7 @@ class HomeBody extends StatelessWidget {
             alignment: AlignmentDirectional.bottomCenter,
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.9,
+                height: MediaQuery.of(context).size.height * 0.7,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 129, 6, 150),
                 ),

@@ -17,20 +17,20 @@ class DailySaleBody extends StatelessWidget {
               children: [
                 Container(
                   height: MediaQuery.of(context).size.height,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 129, 6, 150),
                   ),
                 ),
                 Container(
                   height: 750.0,
                   color: Colors.transparent,
-                  child: new Container(
+                  child: Container(
                     width: double.infinity,
-                    decoration: new BoxDecoration(
+                    decoration:  const BoxDecoration(
                       color: Color.fromARGB(255, 255, 255, 255),
-                      borderRadius: new BorderRadius.only(
-                        topLeft: const Radius.circular(40.0),
-                        topRight: const Radius.circular(40.0),
+                      borderRadius:  BorderRadius.only(
+                        topLeft: Radius.circular(40.0),
+                        topRight: Radius.circular(40.0),
                       ),
                     ),
                     child: SingleChildScrollView(
@@ -113,13 +113,13 @@ class DailySaleBody extends StatelessWidget {
                                                 size: 50,
                                               ),
                                             ),
-                                            SizedBox(width: 20),
+                                            const SizedBox(width: 20),
                                             Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
-                                              children: <Widget>[
+                                              children: const <Widget>[
                                                 Text('Hello'),
                                                 SizedBox(height: 4),
                                                 Text("Hihihihih"),
