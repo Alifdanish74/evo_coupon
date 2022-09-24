@@ -1,8 +1,43 @@
 import 'package:evocoupon/core/constants/routes.dart';
+import 'package:evocoupon/presentation/Payment/payment_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:unicons/unicons.dart';
 
-class HomeBody extends StatelessWidget {
+import '../../core/utils/color_constant.dart';
+import '../../core/utils/math_utils.dart';
+
+class HomeBody extends StatefulWidget {
   const HomeBody({Key? key}) : super(key: key);
+
+  @override
+  State<HomeBody> createState() => _HomeBodyState();
+}
+
+class _HomeBodyState extends State<HomeBody> {
+  late FocusNode focusNode1;
+  //late final String hargaCoupon;
+  final _controller = TextEditingController();
+  //final fieldText = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    // To manage the lifecycle, creating focus nodes in
+    // the initState method
+    focusNode1 = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    // Clean up the focus nodes
+    // when the form is disposed
+    focusNode1.dispose();
+    //_controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +69,11 @@ class HomeBody extends StatelessWidget {
                     child: Stack(
                       children: [
                         const Padding(
-                          padding: EdgeInsets.fromLTRB(30.0, 40, 0, 0),
+                          padding: EdgeInsets.fromLTRB(30.0, 30, 0, 0),
                           child: Text(
                             "Coupon Type",
                             style: TextStyle(
-                              color: Color.fromARGB(255, 62, 39, 92),
+                              color: Color.fromARGB(255, 25, 1, 92),
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Prompt',
@@ -46,7 +81,7 @@ class HomeBody extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 70),
+                          padding: const EdgeInsets.only(top: 60),
                           child: Column(
                             children: [
                               Center(
@@ -57,20 +92,36 @@ class HomeBody extends StatelessWidget {
                                   children: [
                                     GestureDetector(
                                       onTap: () {
-                                        Navigator.of(context)
-                                            .pushNamed(paymentRoute);
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => PaymentScreen(
+                                              hargaCoupon: '0.6',
+                                            ),
+                                          ),
+                                        );
                                       },
                                       child: couponType(
-                                        Color.fromARGB(255, 153, 115, 255),
+                                        Color.fromARGB(255, 201, 184, 248),
+                                        'assets/images/1-hour.svg',
+                                        'Hourly',
                                       ),
                                     ),
                                     GestureDetector(
                                       onTap: () {
-                                        Navigator.of(context)
-                                            .pushNamed(paymentRoute);
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => PaymentScreen(
+                                              hargaCoupon: '0.6',
+                                            ),
+                                          ),
+                                        );
                                       },
                                       child: couponType(
-                                        Color.fromARGB(255, 255, 115, 183),
+                                        Color.fromARGB(255, 201, 184, 248),
+                                        'assets/images/24-hours.svg',
+                                        'Daily',
                                       ),
                                     ),
                                   ],
@@ -84,20 +135,36 @@ class HomeBody extends StatelessWidget {
                                   children: [
                                     GestureDetector(
                                       onTap: () {
-                                        Navigator.of(context)
-                                            .pushNamed(paymentRoute);
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => PaymentScreen(
+                                              hargaCoupon: '0.6',
+                                            ),
+                                          ),
+                                        );
                                       },
                                       child: couponType(
-                                        Color.fromARGB(255, 153, 115, 255),
+                                        Color.fromARGB(255, 201, 184, 248),
+                                        'assets/images/7-days.svg',
+                                        'Weekly',
                                       ),
                                     ),
                                     GestureDetector(
                                       onTap: () {
-                                        Navigator.of(context)
-                                            .pushNamed(paymentRoute);
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => PaymentScreen(
+                                              hargaCoupon: '4.0',
+                                            ),
+                                          ),
+                                        );
                                       },
                                       child: couponType(
-                                        Color.fromARGB(255, 255, 115, 183),
+                                        Color.fromARGB(255, 201, 184, 248),
+                                        'assets/images/calendar.svg',
+                                        'Monthly',
                                       ),
                                     ),
                                   ],
@@ -110,11 +177,22 @@ class HomeBody extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     GestureDetector(
-                                        onTap: () {
-                                          Navigator.of(context)
-                                              .pushNamed(paymentRoute);
-                                        },
-                                        child: couponType(Colors.green)),
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => PaymentScreen(
+                                              hargaCoupon: '0.6',
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      child: couponType(
+                                        Color.fromARGB(255, 201, 184, 248),
+                                        'assets/images/credit.svg',
+                                        'Credit',
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -149,8 +227,9 @@ class HomeBody extends StatelessWidget {
                                 _topUpBottomSheet(context);
                               },
                               style: ElevatedButton.styleFrom(
-                                shape: CircleBorder(),
-                                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                shape: const CircleBorder(),
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 10, 10, 10),
                                 primary: Color.fromARGB(
                                     255, 33, 44, 243), // <-- Button color
                                 onPrimary: Colors.red, // <-- Splash color
@@ -247,7 +326,7 @@ class HomeBody extends StatelessWidget {
     //
   }
 
-  Card couponType(color) {
+  Card couponType(color, _icons, _text) {
     return Card(
       elevation: 0,
       child: Container(
@@ -257,42 +336,130 @@ class HomeBody extends StatelessWidget {
           color: color,
           borderRadius: BorderRadius.circular(20),
         ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8.0, 15, 8, 4),
+              child: SvgPicture.asset(
+                _icons,
+                height: 70,
+                width: 70,
+                fit: BoxFit.scaleDown,
+              ),
+            ),
+            Text(
+              '$_text',
+              style: const TextStyle(
+//                fontWeight: FontWeight.bold,
+                fontSize: 15,
+                color: Colors.black,
+                //fontFamily: 'Prompt',
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
 
   _topUpBottomSheet(context) {
     showModalBottomSheet(
+        isScrollControlled: true,
         context: context,
         builder: (BuildContext bc) {
           return Stack(
             alignment: AlignmentDirectional.bottomCenter,
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.7,
-                decoration: BoxDecoration(
+                height: MediaQuery.of(context).size.height * 0.70,
+                decoration: const BoxDecoration(
                   color: Color.fromARGB(255, 129, 6, 150),
                 ),
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.48,
-                decoration: new BoxDecoration(
+                height: MediaQuery.of(context).size.height * 0.63,
+                decoration: const BoxDecoration(
                   color: Colors.white,
-                  borderRadius: new BorderRadius.only(
-                    topLeft: const Radius.circular(25.0),
-                    topRight: const Radius.circular(25.0),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25.0),
+                    topRight: Radius.circular(25.0),
                   ),
                 ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(30.0, 10, 30, 0),
+                      child: TextFormField(
+                        controller: _controller,
+                        maxLength: 4,
+                        autofocus: false,
+                        focusNode: focusNode1,
+                        keyboardType: const TextInputType.numberWithOptions(
+                          decimal: true,
+                          signed: true,
+                        ),
+                        style: TextStyle(fontSize: 25.0),
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9.,]+'))
+                        ],
+                        decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                              onPressed: clearText, icon: Icon(Icons.clear)),
+                          //border: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.cyan),
+                          ),
+                          //errorBorder: InputBorder.none,
+                          //disabledBorder: InputBorder.none,
+                          contentPadding: EdgeInsets.only(
+                              left: 15, bottom: 11, top: 11, right: 15),
+                          hintText: "Enter your prefered amount",
+                          hintStyle: TextStyle(fontSize: 18),
+                          helperText: 'Min reload amount is RM10',
+                          helperStyle: TextStyle(fontSize: 12),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20.0, 10, 20, 0.00),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              hargaReload('100'),
+                              hargaReload('200'),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              hargaReload('300'),
+                              hargaReload('500'),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              hargaReload('1000'),
+                              otherReload(),
+                            ],
+                          ),
+                          reloadButton(),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              Positioned(
-                top: 10,
+              const Positioned(
+                top: 2,
                 child: Text(
                   "Reload",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 40,
+                    //fontWeight: FontWeight.bold,
+                    fontSize: 35,
                     //fontFamily: 'Prompt',
                   ),
                 ),
@@ -300,5 +467,128 @@ class HomeBody extends StatelessWidget {
             ],
           );
         });
+  }
+
+  otherReload() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(10, 0, 10.0, 20),
+      child: ElevatedButton(
+        onPressed: () {
+          focusNode1.requestFocus();
+        },
+        style: ButtonStyle(
+          // foregroundColor:
+          //     MaterialStateProperty.all<Color>(Colors.white),
+          backgroundColor: MaterialStateProperty.all<Color>(
+            Color.fromARGB(255, 209, 197, 241),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+          ),
+        ),
+        child: Container(
+          alignment: Alignment.center,
+          width: 106,
+          height: 55,
+          //padding: const EdgeInsets.all(0),
+          child: const Text(
+            "Other",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: Colors.black,
+              //fontFamily: 'Prompt',
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void onButtonPressed(harga_) {
+    _controller.text = harga_;
+  }
+
+  hargaReload(price) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(10, 0, 10.0, 20),
+      child: ElevatedButton(
+        onPressed: () {
+          onButtonPressed(price);
+        },
+        style: ButtonStyle(
+          // foregroundColor:
+          //     MaterialStateProperty.all<Color>(Colors.white),
+          backgroundColor: MaterialStateProperty.all<Color>(
+            Color.fromARGB(255, 209, 197, 241),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+          ),
+        ),
+        child: Container(
+          alignment: Alignment.center,
+          width: 106,
+          height: 55,
+          //padding: const EdgeInsets.all(0),
+          child: Text(
+            "RM$price",
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: Colors.black,
+              //fontFamily: 'Prompt',
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  reloadButton() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(10, 0, 10.0, 20),
+      child: ElevatedButton(
+        onPressed: () {},
+        style: ButtonStyle(
+          // foregroundColor:
+          //     MaterialStateProperty.all<Color>(Colors.white),
+          backgroundColor: MaterialStateProperty.all<Color>(
+            Color.fromARGB(255, 69, 11, 228),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+          ),
+        ),
+        child: Container(
+          alignment: Alignment.center,
+          width: 200,
+          height: 55,
+          //padding: const EdgeInsets.all(0),
+          child: const Text(
+            "Reload e-Wallet",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+
+              //fontFamily: 'Prompt',
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void clearText() {
+    _controller.clear();
   }
 }

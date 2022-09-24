@@ -19,10 +19,12 @@ void main() {
     theme: theme(),
     initialRoute: loginRoute,
     routes: {
-      paymentRoute: (context) => PaymentScreen(),
+      paymentRoute: (context) => PaymentScreen(
+            hargaCoupon: '',
+          ),
       loginRoute: (context) => LoginScreen(),
       homeRoute: (context) => HomeScreen(),
-      dailysaleRoute:(context) => DailySaleScreen(),
+      dailysaleRoute: (context) => DailySaleScreen(),
     },
   ));
 }

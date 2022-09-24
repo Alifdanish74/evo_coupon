@@ -5,7 +5,8 @@ import '../../core/constants/constants.dart';
 import '../../size_config.dart';
 
 class PaymentBody extends StatelessWidget {
-  const PaymentBody({Key? key}) : super(key: key);
+  final String hargaCoupon;
+  const PaymentBody({Key? key, required this.hargaCoupon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +19,11 @@ class PaymentBody extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              //  Text(hargaCoupon),
               SizedBox(height: SizeConfig.screenHeight * 0.04),
-              PaymentForm(),
+              PaymentForm(
+                hargaCoupon: hargaCoupon,
+              ),
             ],
           ),
         ),

@@ -3,12 +3,15 @@ import 'package:flutter/services.dart';
 import '../../core/utils/color_constant.dart';
 import '../../core/utils/math_utils.dart';
 import '../../size_config.dart';
-import '../../widgets/custom_text_form_field.dart';
+//import '../../widgets/custom_text_form_field.dart';
 import 'package:evocoupon/core/app_export.dart';
-import 'package:evocoupon/widgets/custom_text_form_field.dart';
+//import 'package:evocoupon/widgets/custom_text_form_field.dart';
 import 'package:evocoupon/core/constants/routes.dart';
 
 class PaymentForm extends StatefulWidget {
+  final String hargaCoupon;
+  const PaymentForm({Key? key, required this.hargaCoupon}) : super(key: key);
+
   @override
   _PaymentFormState createState() => _PaymentFormState();
 }
@@ -24,6 +27,7 @@ class _PaymentFormState extends State<PaymentForm> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            //Text('terer ${widget.hargaCoupon}'),
             Container(
               margin: getMargin(
                 left: 18,
@@ -31,8 +35,15 @@ class _PaymentFormState extends State<PaymentForm> {
                 right: 18,
               ),
               child: TextFormField(
-                keyboardType: TextInputType.number,
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                initialValue: '${widget.hargaCoupon}',
+                enabled: false,
+                keyboardType: const TextInputType.numberWithOptions(
+                  decimal: true,
+                  signed: true,
+                ),
+                inputFormatters: [
+                  FilteringTextInputFormatter.allow(RegExp('[0-9.,]+'))
+                ],
                 //cursorColor: Colors.redAccent,
                 decoration: InputDecoration(
                   filled: true, //<-- SEE HERE

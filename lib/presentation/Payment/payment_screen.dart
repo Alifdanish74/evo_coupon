@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'payment_body.dart';
 
 class PaymentScreen extends StatelessWidget {
-  const PaymentScreen({Key? key}) : super(key: key);
+  final String hargaCoupon;
+  const PaymentScreen({Key? key, required this.hargaCoupon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,9 @@ class PaymentScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: PaymentBody(),
+      body: PaymentBody(
+        hargaCoupon: hargaCoupon,
+      ),
     );
   }
 }

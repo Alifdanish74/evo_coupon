@@ -1,7 +1,8 @@
 import 'package:evocoupon/core/app_export.dart';
-import 'package:evocoupon/widgets/custom_text_form_field.dart';
+//import 'package:evocoupon/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:evocoupon/core/constants/routes.dart';
+import 'package:flutter/services.dart';
 import '../../core/constants/constants.dart';
 import 'package:evocoupon/presentation/Payment/payment_screen.dart';
 
@@ -123,67 +124,134 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        CustomTextFormField(
-                          width: 337,
-                          focusNode: FocusNode(),
-                          hintText: "User ID",
-                          margin: getMargin(
-                            left: 18,
-                            top: 35,
-                            right: 18,
-                          ),
-                          alignment: Alignment.center,
-                          suffix: Container(
-                            margin: getMargin(
-                              left: 30,
-                              top: 24,
-                              right: 24,
-                              bottom: 23,
-                            ),
-                            child: CommonImageView(
-                              svgPath: ImageConstant.imgMail,
-                            ),
-                          ),
-                          suffixConstraints: BoxConstraints(
-                            minWidth: getHorizontalSize(
-                              20.00,
-                            ),
-                            minHeight: getVerticalSize(
-                              16.00,
+                        // CustomTextFormField(
+                        //   width: 337,
+                        //   focusNode: FocusNode(),
+                        //   hintText: "User ID",
+                        //   margin: getMargin(
+                        //     left: 18,
+                        //     top: 35,
+                        //     right: 18,
+                        //   ),
+                        //   alignment: Alignment.center,
+                        //   suffix: Container(
+                        //     margin: getMargin(
+                        //       left: 30,
+                        //       top: 24,
+                        //       right: 24,
+                        //       bottom: 23,
+                        //     ),
+                        //     child: CommonImageView(
+                        //       svgPath: ImageConstant.imgMail,
+                        //     ),
+                        //   ),
+                        //   suffixConstraints: BoxConstraints(
+                        //     minWidth: getHorizontalSize(
+                        //       20.00,
+                        //     ),
+                        //     minHeight: getVerticalSize(
+                        //       16.00,
+                        //     ),
+                        //   ),
+                        // ),
+                        // CustomTextFormField(
+                        //   width: 337,
+                        //   focusNode: FocusNode(),
+                        //   hintText: "Password",
+                        //   margin: getMargin(
+                        //     left: 18,
+                        //     top: 51,
+                        //     right: 18,
+                        //   ),
+                        //   textInputAction: TextInputAction.done,
+                        //   alignment: Alignment.center,
+                        //   suffix: Container(
+                        //     margin: getMargin(
+                        //       left: 30,
+                        //       top: 14,
+                        //       right: 23,
+                        //       bottom: 29,
+                        //     ),
+                        //     child: CommonImageView(
+                        //       svgPath: ImageConstant.imgLock,
+                        //     ),
+                        //   ),
+                        //   suffixConstraints: BoxConstraints(
+                        //     minWidth: getHorizontalSize(
+                        //       18.00,
+                        //     ),
+                        //     minHeight: getVerticalSize(
+                        //       20.00,
+                        //     ),
+                        //   ),
+                        //   isObscureText: true,
+                        // ),
+                        Container(
+                          height: SizeConfig.screenHeight * 0.04,
+                        ),
+                        Center(
+                          child: SizedBox(
+                            width: SizeConfig.screenWidth * 0.85,
+                            child: TextFormField(
+                              //cursorColor: Colors.redAccent,
+                              decoration: InputDecoration(
+                                filled: true, //<-- SEE HERE
+                                fillColor: Color.fromARGB(255, 255, 255, 255),
+                                hintText: 'User ID',
+                                hintStyle: TextStyle(
+                                  color: ColorConstant.gray400,
+                                  fontSize: getFontSize(
+                                    20,
+                                  ),
+                                  fontFamily: 'Trebuchet MS',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              style: TextStyle(
+                                color: ColorConstant.black900,
+                                fontSize: getFontSize(
+                                  20,
+                                ),
+                                fontFamily: 'Trebuchet MS',
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ),
                         ),
-                        CustomTextFormField(
-                          width: 337,
-                          focusNode: FocusNode(),
-                          hintText: "Password",
-                          margin: getMargin(
-                            left: 18,
-                            top: 51,
-                            right: 18,
+                        Container(
+                          height: SizeConfig.screenHeight * 0.04,
+                        ),
+                        Center(
+                          child: SizedBox(
+                            width: SizeConfig.screenWidth * 0.85,
+                            child: TextFormField(
+                              obscureText: true,
+                              enableSuggestions: false,
+                              autocorrect: false,
+                              //cursorColor: Colors.redAccent,
+                              decoration: InputDecoration(
+                                filled: true, //<-- SEE HERE
+                                fillColor: Color.fromARGB(255, 255, 255, 255),
+                                hintText: 'Password',
+                                hintStyle: TextStyle(
+                                  color: ColorConstant.gray400,
+                                  fontSize: getFontSize(
+                                    20,
+                                  ),
+                                  fontFamily: 'Trebuchet MS',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              style: TextStyle(
+                                color: ColorConstant.black900,
+                                fontSize: getFontSize(
+                                  20,
+                                ),
+                                fontFamily: 'Trebuchet MS',
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
                           ),
-                          textInputAction: TextInputAction.done,
-                          alignment: Alignment.center,
-                          suffix: Container(
-                            margin: getMargin(
-                              left: 30,
-                              top: 14,
-                              right: 23,
-                              bottom: 29,
-                            ),
-                            child: CommonImageView(
-                              svgPath: ImageConstant.imgLock,
-                            ),
-                          ),
-                          suffixConstraints: BoxConstraints(
-                            minWidth: getHorizontalSize(
-                              18.00,
-                            ),
-                            minHeight: getVerticalSize(
-                              20.00,
-                            ),
-                          ),
-                          isObscureText: true,
                         ),
                         Align(
                           alignment: Alignment.centerRight,
