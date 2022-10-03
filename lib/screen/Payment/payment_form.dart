@@ -109,7 +109,7 @@ class _PaymentFormState extends State<PaymentForm> {
                 //cursorColor: Colors.redAccent,
                 decoration: InputDecoration(
                   filled: true, //<-- SEE HERE
-                  fillColor: Color.fromARGB(255, 255, 255, 255),
+                  fillColor: const Color.fromARGB(255, 255, 255, 255),
                   hintText: 'Email',
                   hintStyle: TextStyle(
                     color: ColorConstant.gray400,
@@ -189,7 +189,83 @@ class _PaymentFormState extends State<PaymentForm> {
                 ),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(homeRoute);
+                    showDialog(
+                      context: context,
+                      builder: (ctx) => AlertDialog(
+                        title: const Text("Please Select Payment Method"),
+                        //content: const Text("You have raised a Alert Dialog Box"),
+                        actions: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 30.0),
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ButtonStyle(
+                                // foregroundColor:
+                                //     MaterialStateProperty.all<Color>(Colors.white),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                  Color.fromARGB(255, 128, 1, 137),
+                                ),
+                                shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(80.0),
+                                  ),
+                                ),
+                              ),
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 50.0,
+                                padding: const EdgeInsets.all(0),
+                                child: const Text(
+                                  "Cash",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                    fontFamily: 'Prompt',
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 20.0),
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ButtonStyle(
+                                // foregroundColor:
+                                //     MaterialStateProperty.all<Color>(Colors.white),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                  Color.fromARGB(255, 128, 1, 137),
+                                ),
+                                shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(80.0),
+                                  ),
+                                ),
+                              ),
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 50.0,
+                                padding: const EdgeInsets.all(0),
+                                child: const Text(
+                                  "Cashless",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                    fontFamily: 'Prompt',
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    );
                   },
                   style: ButtonStyle(
                     // foregroundColor:

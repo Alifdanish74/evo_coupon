@@ -1,4 +1,4 @@
-import 'package:evocoupon/presentation/Payment/payment_form.dart';
+import 'package:evocoupon/screen/Payment/payment_form.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/constants/constants.dart';

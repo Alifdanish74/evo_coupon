@@ -9,7 +9,7 @@ class PaymentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Payment Details',
           style: TextStyle(
             color: Colors.black,

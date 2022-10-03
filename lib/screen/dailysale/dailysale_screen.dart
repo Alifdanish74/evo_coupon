@@ -1,4 +1,4 @@
-import 'package:evocoupon/presentation/DailySale/dailysale_body.dart';
+import 'package:evocoupon/screen/DailySale/dailysale_body.dart';
 import 'package:flutter/material.dart';
 
 class DailySaleScreen extends StatelessWidget {
@@ -9,7 +9,7 @@ class DailySaleScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: Text(
+        title: const Text(
           'Daily Sales',
           style: TextStyle(
             color: Colors.white,

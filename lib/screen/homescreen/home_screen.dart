@@ -1,4 +1,4 @@
-import 'package:evocoupon/presentation/homescreen/home_body.dart';
+import 'package:evocoupon/screen/homescreen/home_body.dart';
 import 'package:flutter/material.dart';
 
 import 'package:evocoupon/core/constants/routes.dart';

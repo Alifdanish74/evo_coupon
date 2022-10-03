@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:evocoupon/core/constants/routes.dart';
 import 'package:flutter/services.dart';
 import '../../core/constants/constants.dart';
-import 'package:evocoupon/presentation/Payment/payment_screen.dart';
+import 'package:evocoupon/screen/Payment/payment_screen.dart';
 
 import '../../size_config.dart';
 

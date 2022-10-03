@@ -1,9 +1,8 @@
 import 'package:evocoupon/core/constants/routes.dart';
-import 'package:evocoupon/presentation/Payment/payment_screen.dart';
-import 'package:evocoupon/presentation/dailysale/dailysale_screen.dart';
-import 'package:evocoupon/presentation/homescreen/home_screen.dart';
-import 'package:evocoupon/presentation/login_screen/login_screen.dart';
-import '../../core/constants/constants.dart';
+import 'package:evocoupon/screen/Payment/payment_screen.dart';
+import 'package:evocoupon/screen/dailysale/dailysale_screen.dart';
+import 'package:evocoupon/screen/homescreen/home_screen.dart';
+import 'package:evocoupon/screen/login_screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -19,17 +18,19 @@ void main() {
     theme: theme(),
     initialRoute: loginRoute,
     routes: {
-      paymentRoute: (context) => PaymentScreen(
+      paymentRoute: (context) => const PaymentScreen(
             hargaCoupon: '',
           ),
       loginRoute: (context) => LoginScreen(),
-      homeRoute: (context) => HomeScreen(),
-      dailysaleRoute: (context) => DailySaleScreen(),
+      homeRoute: (context) => const HomeScreen(),
+      dailysaleRoute: (context) => const DailySaleScreen(),
     },
   ));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return LoginScreen();

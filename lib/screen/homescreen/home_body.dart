@@ -1,5 +1,5 @@
 import 'package:evocoupon/core/constants/routes.dart';
-import 'package:evocoupon/presentation/Payment/payment_screen.dart';
+import 'package:evocoupon/screen/Payment/payment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
