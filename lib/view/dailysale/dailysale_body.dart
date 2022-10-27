@@ -1,10 +1,10 @@
-import '../../size_config.dart';
+//import '../../size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 import '../../core/constants/constants.dart';
 
 class DailySaleBody extends StatelessWidget {
-  const DailySaleBody({Key? key}) : super(key: key);
+  const DailySaleBody({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,22 +1,21 @@
 import 'package:evocoupon/core/constants/routes.dart';
-import 'package:evocoupon/screen/Payment/payment_screen.dart';
+import 'package:evocoupon/view/Payment/payment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:unicons/unicons.dart';
 
-import '../../core/utils/color_constant.dart';
-import '../../core/utils/math_utils.dart';
+import '../screen.dart';
 
 class HomeBody extends StatefulWidget {
-  const HomeBody({Key? key}) : super(key: key);
+  const HomeBody({Key key}) : super(key: key);
 
   @override
   State<HomeBody> createState() => _HomeBodyState();
 }
 
 class _HomeBodyState extends State<HomeBody> {
-  late FocusNode focusNode1;
+  FocusNode focusNode1;
   //late final String hargaCoupon;
   final _controller = TextEditingController();
   //final fieldText = TextEditingController();
@@ -92,13 +91,10 @@ class _HomeBodyState extends State<HomeBody> {
                                   children: [
                                     GestureDetector(
                                       onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => PaymentScreen(
-                                              hargaCoupon: '0.6',
-                                            ),
-                                          ),
+                                        Navigator.of(context).pushNamed(
+                                          PaymentScreen.routeName,
+                                          arguments:
+                                              CustomerArgument(editCust: false, hargaCoupon: '0.6'),
                                         );
                                       },
                                       child: couponType(
@@ -109,13 +105,10 @@ class _HomeBodyState extends State<HomeBody> {
                                     ),
                                     GestureDetector(
                                       onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => PaymentScreen(
-                                              hargaCoupon: '0.6',
-                                            ),
-                                          ),
+                                        Navigator.of(context).pushNamed(
+                                          PaymentScreen.routeName,
+                                          arguments:
+                                              CustomerArgument(editCust: false, hargaCoupon: '4.0'),
                                         );
                                       },
                                       child: couponType(
@@ -135,13 +128,10 @@ class _HomeBodyState extends State<HomeBody> {
                                   children: [
                                     GestureDetector(
                                       onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => PaymentScreen(
-                                              hargaCoupon: '0.6',
-                                            ),
-                                          ),
+                                        Navigator.of(context).pushNamed(
+                                          PaymentScreen.routeName,
+                                          arguments:
+                                              CustomerArgument(editCust: false, hargaCoupon: '20.0'),
                                         );
                                       },
                                       child: couponType(
@@ -152,13 +142,10 @@ class _HomeBodyState extends State<HomeBody> {
                                     ),
                                     GestureDetector(
                                       onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => PaymentScreen(
-                                              hargaCoupon: '4.0',
-                                            ),
-                                          ),
+                                        Navigator.of(context).pushNamed(
+                                          PaymentScreen.routeName,
+                                          arguments:
+                                              CustomerArgument(editCust: false, hargaCoupon: '50.0'),
                                         );
                                       },
                                       child: couponType(
@@ -178,13 +165,10 @@ class _HomeBodyState extends State<HomeBody> {
                                   children: [
                                     GestureDetector(
                                       onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => PaymentScreen(
-                                              hargaCoupon: '0.6',
-                                            ),
-                                          ),
+                                        Navigator.of(context).pushNamed(
+                                          PaymentScreen.routeName,
+                                          arguments:
+                                              CustomerArgument(editCust: false, hargaCoupon: '999.0'),
                                         );
                                       },
                                       child: couponType(

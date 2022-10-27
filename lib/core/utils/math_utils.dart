@@ -40,11 +40,11 @@ double getSize(double px) {
 
 ///This method is used to set padding responsively
 EdgeInsetsGeometry getPadding({
-  double? all,
-  double? left,
-  double? top,
-  double? right,
-  double? bottom,
+  double all,
+  double left,
+  double top,
+  double right,
+  double bottom,
 }) {
   if (all != null) {
     left = all;
@@ -70,11 +70,11 @@ EdgeInsetsGeometry getPadding({
 
 ///This method is used to set margin responsively
 EdgeInsetsGeometry getMargin({
-  double? all,
-  double? left,
-  double? top,
-  double? right,
-  double? bottom,
+  double all,
+  double left,
+  double top,
+  double right,
+  double bottom,
 }) {
   if (all != null) {
     left = all;

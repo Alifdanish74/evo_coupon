@@ -8,12 +8,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class CommonImageView extends StatelessWidget {
   ///[url] is required parameter for fetching network image
-  String? url;
-  String? imagePath;
-  String? svgPath;
-  File? file;
-  double? height;
-  double? width;
+  String url;
+  String imagePath;
+  String svgPath;
+  File file;
+  double height;
+  double width;
   final BoxFit fit;
   final String placeHolder;
 
@@ -36,30 +36,30 @@ class CommonImageView extends StatelessWidget {
   }
 
   Widget _buildImageView() {
-    if (svgPath != null && svgPath!.isNotEmpty) {
+    if (svgPath != null && svgPath.isNotEmpty) {
       return Container(
         height: height,
         width: width,
         child: SvgPicture.asset(
-          svgPath!,
+          svgPath,
           height: height,
           width: width,
           fit: fit,
         ),
       );
-    } else if (file != null && file!.path.isNotEmpty) {
+    } else if (file != null && file.path.isNotEmpty) {
       return Image.file(
-        file!,
+        file,
         height: height,
         width: width,
         fit: fit,
       );
-    } else if (url != null && url!.isNotEmpty) {
+    } else if (url != null && url.isNotEmpty) {
       return CachedNetworkImage(
         height: height,
         width: width,
         fit: fit,
-        imageUrl: url!,
+        imageUrl: url,
         placeholder: (context, url) => Container(
           height: 30,
           width: 30,
@@ -75,9 +75,9 @@ class CommonImageView extends StatelessWidget {
           fit: fit,
         ),
       );
-    } else if (imagePath != null && imagePath!.isNotEmpty) {
+    } else if (imagePath != null && imagePath.isNotEmpty) {
       return Image.asset(
-        imagePath!,
+        imagePath,
         height: height,
         width: width,
         fit: fit,

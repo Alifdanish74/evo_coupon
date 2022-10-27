@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../size_config.dart';
-
+//import '../../size_config.dart';
+  MediaQueryData _mediaQueryData;
 const kPrimaryColor = Color(0xFFFF7643);
 const kPrimaryLightColor = Color(0xFFFFECDF);
 const kPrimaryGradientColor = LinearGradient(
@@ -15,7 +15,7 @@ const kTextColor = Color(0xFF757575);
 const kAnimationDuration = Duration(milliseconds: 200);
 
 final headingStyle = TextStyle(
-  fontSize: getProportionateScreenWidth(28),
+  fontSize: (28/375)*_mediaQueryData.size.width,
   fontWeight: FontWeight.bold,
   color: Colors.black,
   height: 1.5,

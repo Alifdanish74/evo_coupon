@@ -1,14 +1,18 @@
+import 'package:evocoupon/Service.dart';
 import 'package:evocoupon/core/app_export.dart';
 //import 'package:evocoupon/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:evocoupon/core/constants/routes.dart';
 import 'package:flutter/services.dart';
 import '../../core/constants/constants.dart';
-import 'package:evocoupon/screen/Payment/payment_screen.dart';
+import 'package:evocoupon/view/Payment/payment_screen.dart';
 
 import '../../size_config.dart';
+import '../CustomerCreateUpdateScreen.dart';
+import '../ScreenRoute.dart';
 
 class LoginScreen extends StatelessWidget {
+  //static late MediaQueryData _mediaQueryData ;
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -262,7 +266,7 @@ class LoginScreen extends StatelessWidget {
                               right: 9,
                             ),
                             child: GestureDetector(
-                              onTap: () {},
+                              
                               child: Text(
                                 "Forget password",
                                 overflow: TextOverflow.ellipsis,

@@ -1,8 +1,8 @@
-import 'package:evocoupon/screen/DailySale/dailysale_body.dart';
+import 'package:evocoupon/view/DailySale/dailysale_body.dart';
 import 'package:flutter/material.dart';
 
 class DailySaleScreen extends StatelessWidget {
-  const DailySaleScreen({Key? key}) : super(key: key);
+  const DailySaleScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

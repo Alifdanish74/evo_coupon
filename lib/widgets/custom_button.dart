@@ -13,23 +13,23 @@ class CustomButton extends StatelessWidget {
       this.margin,
       this.text});
 
-  ButtonShape? shape;
+  ButtonShape shape;
 
-  ButtonPadding? padding;
+  ButtonPadding padding;
 
-  ButtonVariant? variant;
+  ButtonVariant variant;
 
-  ButtonFontStyle? fontStyle;
+  ButtonFontStyle fontStyle;
 
-  Alignment? alignment;
+  Alignment alignment;
 
-  VoidCallback? onTap;
+  VoidCallback onTap;
 
-  double? width;
+  double width;
 
-  EdgeInsetsGeometry? margin;
+  EdgeInsetsGeometry margin;
 
-  String? text;
+  String text;
 
   @override
   Widget build(BuildContext context) {
